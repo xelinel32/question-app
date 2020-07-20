@@ -1,0 +1,16 @@
+.columns {
+  height: 100vh;
+}
+.author {
+  height: 100%;
+  padding: 10px;
+}
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+.add-btn {
+  right: 30px;
+  bottom: 30px;
+}
