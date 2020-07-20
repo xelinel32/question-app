@@ -1,4 +1,4 @@
-import { isValid } from './utils'
+import { isValid, createModal } from './utils'
 import { Question } from './question'
 import '../node_modules/spectre.css/dist/spectre.css'
 import '../node_modules/spectre.css/dist/spectre-icons.css'
@@ -35,4 +35,6 @@ function submitFormHandler(e) {
   }
 }
 
-function openModal() {}
+function openModal() {
+  createModal('Авторизация', '<h1>Test</h1>', 'auth-modal')
+}

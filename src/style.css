@@ -13,4 +13,29 @@ ul {
 .add-btn {
   right: 30px;
   bottom: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  opacity: 1;
+  z-index: 400;
+}
+
+.modal-overlay {
+  background: rgba(247, 248, 249, 0.75);
+  bottom: 0;
+  cursor: default;
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modal-container {
+  z-index: 400;
 }
