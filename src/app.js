@@ -34,3 +34,5 @@ function submitFormHandler(e) {
     })
   }
 }
+
+function openModal() {}
