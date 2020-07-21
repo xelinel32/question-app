@@ -28,6 +28,27 @@ export class Question {
     const list = document.querySelector('#list')
     list.innerHTML = html
   }
+
+  static fetch(token) {
+    if (!token) {
+      return Promise.resolve('<p class="error">You not have token</p>')
+    }
+    return fetch(
+      `https://questions-app-888c4.firebaseio.com/questions.json?auth=${token}`
+    )
+      .then((response) => response.json())
+      .then((questions) => {
+        if (questions.error) {
+          return '<p class="error">Yor get error from respons</p>'
+        }
+        return response
+          ? Object.keys(response).map((key) => ({
+              ...response[key],
+              id: key,
+            }))
+          : []
+      })
+  }
 }
 
 function addToLocalStorage(question) {

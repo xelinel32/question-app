@@ -1,5 +1,6 @@
 import { isValid, createModal } from './utils'
 import { Question } from './question'
+import { getAuthzForm, authWithEmailAndPassword } from './auth'
 import '../node_modules/spectre.css/dist/spectre.css'
 import '../node_modules/spectre.css/dist/spectre-icons.css'
 import '../node_modules/spectre.css/dist/spectre-exp.css'
@@ -36,5 +37,28 @@ function submitFormHandler(e) {
 }
 
 function openModal() {
-  createModal('Авторизация', '<h1>Test</h1>', 'auth-modal')
+  createModal('Авторизация', getAuthzForm(), 'auth-modal')
+  document
+    .getElementById('auth-form')
+    .addEventListener('submit', authFormHandler, {
+      once: true, // create event once
+    })
+}
+
+function authFormHandler(e) {
+  e.preventDefault()
+
+  const btn = event.target.querySelector('button')
+  const email = e.target.querySelector('#email').value
+  const password = e.target.querySelector('#password').value
+
+  btn.disabled = true
+  authWithEmailAndPassword(email, password)
+    .then(Question.fetch)
+    .then(renderModalAfterAuth)
+    .then(() => (btn.disabled = false))
+}
+
+function renderModalAfterAuth(content) {
+  console.log(content)
 }
