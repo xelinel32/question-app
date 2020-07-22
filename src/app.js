@@ -60,5 +60,9 @@ function authFormHandler(e) {
 }
 
 function renderModalAfterAuth(content) {
-  console.log(content)
+  if (typeof content === 'strign') {
+    createModal('Ошибка', content)
+  } else {
+    createModal('Список вопросов', Question.listToHtml(content))
+  }
 }

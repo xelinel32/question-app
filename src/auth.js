@@ -1,7 +1,6 @@
 export function getAuthzForm() {
   return `
   <form class="mb-2" id="auth-form">
-    <h3 class="text-warning">Задать вопрос</h3>
     <div class="form-group mb-2">
       <label class="form-label" for="email">Email</label>
       <input

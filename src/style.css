@@ -36,6 +36,15 @@ ul {
   right: 0;
   top: 0;
 }
+
 .modal-container {
   z-index: 400;
+}
+
+.error {
+  color: #ff0000;
+}
+
+.container {
+  padding: 0;
 }
